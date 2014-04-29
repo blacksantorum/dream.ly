@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC0021591908C96F0050F038 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0021581908C96F0050F038 /* FacebookSDK.framework */; };
+		EC4943CF190F768000F32044 /* DLYCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4943CE190F768000F32044 /* DLYCanvas.m */; };
+		EC4943D5190F799200F32044 /* DLYDrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4943D4190F799200F32044 /* DLYDrawingViewController.m */; };
 		EC4D58B51908157C00A6DE06 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC4D58B41908157C00A6DE06 /* AudioToolbox.framework */; };
 		EC4D58B7190815AE00A6DE06 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC4D58B6190815AE00A6DE06 /* CFNetwork.framework */; };
 		EC4D58B9190815C000A6DE06 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC4D58B8190815C000A6DE06 /* CoreLocation.framework */; };
@@ -44,6 +47,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC0021581908C96F0050F038 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		EC4943CD190F768000F32044 /* DLYCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLYCanvas.h; sourceTree = "<group>"; };
+		EC4943CE190F768000F32044 /* DLYCanvas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLYCanvas.m; sourceTree = "<group>"; };
+		EC4943D3190F799200F32044 /* DLYDrawingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLYDrawingViewController.h; sourceTree = "<group>"; };
+		EC4943D4190F799200F32044 /* DLYDrawingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLYDrawingViewController.m; sourceTree = "<group>"; };
 		EC4D58B41908157C00A6DE06 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		EC4D58B6190815AE00A6DE06 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		EC4D58B8190815C000A6DE06 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -93,6 +101,7 @@
 				EC4D58B51908157C00A6DE06 /* AudioToolbox.framework in Frameworks */,
 				EC7FA9E119078B4A00A5C429 /* UIKit.framework in Frameworks */,
 				EC7FA9DD19078B4A00A5C429 /* Foundation.framework in Frameworks */,
+				EC0021591908C96F0050F038 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +141,7 @@
 		EC7FA9DB19078B4A00A5C429 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EC0021581908C96F0050F038 /* FacebookSDK.framework */,
 				EC4D58C4190815FE00A6DE06 /* SystemConfiguration.framework */,
 				EC4D58C2190815F100A6DE06 /* StoreKit.framework */,
 				EC4D58C0190815E900A6DE06 /* Security.framework */,
@@ -152,8 +162,12 @@
 		EC7FA9E219078B4A00A5C429 /* dream.ly */ = {
 			isa = PBXGroup;
 			children = (
+				EC4943D3190F799200F32044 /* DLYDrawingViewController.h */,
+				EC4943D4190F799200F32044 /* DLYDrawingViewController.m */,
 				EC7FA9EB19078B4A00A5C429 /* DLYAppDelegate.h */,
 				EC7FA9EC19078B4A00A5C429 /* DLYAppDelegate.m */,
+				EC4943CD190F768000F32044 /* DLYCanvas.h */,
+				EC4943CE190F768000F32044 /* DLYCanvas.m */,
 				EC7FA9EE19078B4A00A5C429 /* Main.storyboard */,
 				EC7FA9F119078B4A00A5C429 /* DLYViewController.h */,
 				EC7FA9F219078B4A00A5C429 /* DLYViewController.m */,
@@ -290,8 +304,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC7FA9F319078B4A00A5C429 /* DLYViewController.m in Sources */,
+				EC4943D5190F799200F32044 /* DLYDrawingViewController.m in Sources */,
 				EC7FA9ED19078B4A00A5C429 /* DLYAppDelegate.m in Sources */,
 				EC7FA9E919078B4A00A5C429 /* main.m in Sources */,
+				EC4943CF190F768000F32044 /* DLYCanvas.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +435,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/christibbs/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dream.ly/dream.ly-Prefix.pch";
@@ -443,6 +460,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/christibbs/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dream.ly/dream.ly-Prefix.pch";

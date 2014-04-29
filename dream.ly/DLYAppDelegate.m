@@ -8,6 +8,7 @@
 
 #import "DLYAppDelegate.h"
 #import <Parse/Parse.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @implementation DLYAppDelegate
 
@@ -16,7 +17,36 @@
     [Parse setApplicationId:@"a9qCAMPVFWO5qRgFNOyvLyGHO2fMX1pHLEa77cvX"
                   clientKey:@"KHOuWqX0tqarWQ8v70Ai8UvC8eLIL2MtgVL0PNGU"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    [PFFacebookUtils initializeFacebook];
+    
+    
     return YES;
+}
+
+- (void)openFBSession
+{
+    [FBSession openActiveSessionWithReadPermissions:@[@"basic_info", @"email"] allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+        FBAccessTokenData *tokenData = session.accessTokenData;
+        [PFFacebookUtils logInWithFacebookId:@"12409649" accessToken:tokenData.accessToken expirationDate:tokenData.expirationDate block:^(PFUser *user, NSError *error) {
+            NSLog(@"%@",user);
+        }];
+        [[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+            NSLog(@"%@",result);
+        }];
+    }];
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [FBAppCall handleOpenURL:url
+                  sourceApplication:sourceApplication
+                        withSession:[PFFacebookUtils session]];
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -36,10 +66,6 @@
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
